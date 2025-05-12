@@ -279,6 +279,9 @@
     </script> -->
     
     <script>
+        const apiBaseUrl    = "https://localhost:7170";  //  Email API
+        const clientBaseUrl = "https://localhost:7007";  //  Blazor app
+
       let googleUserName = "";
     
       $(document).ready(function () {
@@ -301,9 +304,7 @@
           return;
         }
 
-            // derive a displayName:
-            //  - if Google signup, use that
-            //  - otherwise take local‑part of email and strip out digits/other chars
+            //  - if Google signup, use that otherwise take local‑part of email and strip out digits/other chars
             let displayName = googleUserName || "";
             if (!displayName) {
               const localPart = email.split('@')[0] || "";
@@ -323,12 +324,8 @@
             { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }
           ).toString();    // Base64 ciphertext
     
-        // const confirmLink = 
-        //   `https://localhost:7170/api/Email/ConfirmEmail?` +
-        //   `email=${encodeURIComponent(email)}&isConfirm=true`;
-        // build confirm link with email, password, isConfirm=true
         const confirmLink =
-          `https://localhost:7170/api/Email/ConfirmEmail?` +
+          `${apiBaseUrl}/api/Email/ConfirmEmail?` +
           `email=${encodeURIComponent(email)}` +
           `&pwd=${encodeURIComponent(encrypted || "")}` +
           `&isConfirm=true`;
@@ -349,7 +346,7 @@
                 Hi ${displayName || ''},
               </p>
               <p style="color:#555; line-height:1.6;">
-                Thank you for signing up! 
+                Thank you for signing up.
               </p>
               <p style="color:#555; line-height:1.6;">
                 We're excited to help you simplify your invoicing and streamline your business operations. To activate your account, please confirm your email address by clicking the button below:
@@ -382,7 +379,8 @@
     
         // send email
         $.ajax({
-          url: 'https://localhost:7170/api/Email/SendEmail',
+          // url: 'https://localhost:7170/api/Email/SendEmail',
+          url: apiBaseUrl +'/api/Email/SendEmail',
           type: 'POST',
           contentType: 'application/json',
           data: JSON.stringify(emailPayload),
