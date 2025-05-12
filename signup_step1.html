@@ -93,6 +93,8 @@
         0%   { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
       }
+
+      .text-orange { color: orange; }
         
     </style>
 
@@ -110,7 +112,8 @@
           <div class="signupPhase_Info d-flex w-50 align-items-center">
             <div class="w-100 p-15 position-absolute">
               <div class="mb-6">
-                <h1 class="text-start fs-2hx"><img class="w-150px" src="/UIDesign/img/logo/Cool-Invoice-Logo.png"></h1>
+                <!-- <h1 class="text-start fs-2hx"><img class="w-150px" src="/UIDesign/img/logo/Cool-Invoice-Logo.png"></h1> -->
+                <h1 class="text-start fs-2hx"><img class="w-150px" src="../img/logo/Cool-Invoice-Logo.png"></h1>
               </div>
               <div class="  text-white ">
                 <h1 class="fs-3hx mb-8">We’re excited to have you on board!</h3>
@@ -225,6 +228,113 @@
 
     </div>
 
+      <!-- Confirmation Modal -->
+        <div
+        class="modal fade"
+        id="confirmationModal"
+        tabindex="-1"
+        aria-labelledby="confirmationModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content border border-2 border-secondary">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmationModalLabel">
+                You’re Almost There!
+              </h5>
+              <button
+                type="button"
+                class="btn-close btn-sm"               
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p>
+                A confirmation email has been sent to:
+                <strong id="modalEmailAddress" style="color: #3498db;"></strong>
+              </p>
+              <p>Please check your inbox and click the link to verify your email address.</p>
+              <p><strong>Check your spam or junk folder.</strong></p>   
+              <p>Make sure you entered the correct email address.</p>
+              <p>
+                Need help?
+                <a href="https://coolinvoice.com/support" target="_blank">
+                  Contact Support
+                </a>
+              </p>                                                       
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                id="btnResend"
+                class="btn btn-sm"
+                style="background-color: orange; color: black;"
+              >
+                Resend Email
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-outline-primary btn-sm"   
+                data-bs-dismiss="modal"
+                style="background-color: skyblue; color: black;"
+              >
+                Close
+              </button>
+            </div>
+            <div class="text-center mb-3">
+              Thank you for joining <strong>Cool Invoice</strong>! 
+              <br>We’re excited to help
+              you simplify your business finances.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resend Confirmation Modal -->
+      <div
+      class="modal fade"
+      id="resendModal"
+      tabindex="-1"
+      aria-labelledby="resendModalLabel"
+      aria-hidden="true"
+      >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border border-2 border-secondary">
+          <div class="modal-header">
+            <h5 class="modal-title" id="resendModalLabel">
+              Confirmation Email Sent Again!
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-sm"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Another confirmation email has been sent to:
+              <strong id="resendModalEmailAddress" style="color: #3498db;"></strong>
+            </p>
+            <p>Please check your inbox and click the link to verify your email address.</p>
+            <p><strong>Check your spam or junk folder.</strong></p>
+            <p>Make sure you entered the correct email address.</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-sm"
+              data-bs-dismiss="modal"
+              style="background-color: skyblue; color: black;"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+      </div>
     
 
     <!-- jquery Min JS -->
@@ -241,8 +351,10 @@
     <script>
       const apiBaseUrl    = "https://localhost:7170";  //  Email API
       const clientBaseUrl = "https://localhost:7007";  //  Blazor app
+      let googleUserName = "";
 
-    let googleUserName = "";
+        // store last payload for resend
+        window.lastEmailPayload = null;
   
     $(document).ready(function () {
       $('form')[0].reset();
@@ -258,7 +370,7 @@
     function sendConfirmationEmail() {
       const email    = $('#email').val();
       const password = $('#password').val();
-  
+
       // if no password AND no googleUserName, require fill
       if (!email || (!password && !googleUserName)) {
         alert('Please fill in all fields (or sign in with Google).');
@@ -334,6 +446,9 @@
           </div>
         </div>`
       };
+
+          // store for resend
+          window.lastEmailPayload = emailPayload;
   
       // show loader
       $('#loaderOverlay').show();
@@ -346,11 +461,19 @@
         contentType: 'application/json',
         data: JSON.stringify(emailPayload),
         success: function () {
-          alert('We sent an email. Please check your inbox or spam folder.');
-
+          //alert('We sent an email. Please check your inbox or spam folder.');
+            
+          // Inject the email address into the modal
+            $('#modalEmailAddress').text(email);
             // Clear the form fields
             $('form')[0].reset();
-            googleUserName = ""; // reset Google name
+            googleUserName = ""; 
+
+              // Show the Bootstrap modal
+              const confirmationModal = new bootstrap.Modal(
+                document.getElementById('confirmationModal')
+              );
+              confirmationModal.show();
         },
         error: function (xhr) {
           alert('Failed to send confirmation email: ' + xhr.responseText);
@@ -361,11 +484,51 @@
         }
       });
     }
-  
+    </script>
 
+<!-- resend email -->
+  <script>
+    $(document).ready(function() {
+      $('#btnResend').on('click', function() {
+        const email = $('#modalEmailAddress').text();
+        const payload = window.lastEmailPayload;
+        if (!payload) {
+          console.error('No saved payload for resend');
+          return;
+        }
+  
+        // hide first modal
+        const firstEl = document.getElementById('confirmationModal');
+        bootstrap.Modal.getInstance(firstEl).hide();
+  
+        // show loader
+        $('#loaderOverlay').show();
+  
+        // send again
+        $.ajax({
+          url: apiBaseUrl + '/api/Email/SendEmail',
+          type: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify(payload),
+          success: function() {
+            $('#resendModalEmailAddress').text(email);
+            const resendModal = new bootstrap.Modal(
+              document.getElementById('resendModal')
+            );
+            resendModal.show();
+          },
+          error: function(xhr) {
+            alert('Failed to resend confirmation email: ' + xhr.responseText);
+          },
+          complete: function() {
+            $('#loaderOverlay').hide();
+          }
+        });
+      });
+    });
   </script>
   
-  <!-- 3) Google Sign‑In -->
+  <!--Google Sign‑In -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script>
     function handleCredentialResponse(response) {
