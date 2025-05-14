@@ -50,7 +50,8 @@
           opacity: 0.2;
           width: 100%;
           height: 100%;
-          background-image: url("/UIDesign/img/laptop-dashboard.jpg");
+          /* background-image: url("/UIDesign/img/laptop-dashboard.jpg"); */
+          background-image: url("../img/laptop-dashboard.jpg");
           background-position: center;
         }
 
@@ -117,7 +118,7 @@
               </div>
               <div class="  text-white ">
                 <h1 class="fs-3hx mb-8">We’re excited to have you on board!</h3>
-                <p class="fs-2x">With CoolInvoice, you can:</p>
+                <p class="fs-2x">With Cool Invoice, you can:</p>
                 <p class="fs-4 text-white"><i class="far fa-check-circle fs-4"></i> <span>Create professional invoices in seconds</span> </p>
                 <p class="fs-4 text-white"><i class="far fa-check-circle fs-4"></i> <span>Automate your purchase, inventory, and accounts</span> </p>
                 <p class="fs-4 text-white"><i class="far fa-check-circle fs-4"></i> <span>Track payments and expenses with ease</span> </p>
@@ -126,12 +127,6 @@
               <div>
                 <br>
               </div>
-
-              <!-- <div class="mt-8">
-                <p class="fs-4 text-white"><i class="fas fa-angle-double-right fs-4"></i> <span>No hidden fees.</span> </p>
-                <p class="fs-4 text-white"><i class="fas fa-angle-double-right fs-4"></i> <span>Your data is safe and secure.</span> </p>
-                <p class="fs-4 text-white mb-0"><i class="fas fa-angle-double-right fs-4"></i> <span>Our support team is always here to help you succeed</span> </p>
-              </div> -->
 
               <div class="mt-8">
                 <p class="fs-4 text-white">
@@ -158,7 +153,7 @@
 
             <div class="formOf_signin_Body h-100">
               <div class="mb-15">
-                <h1 class="text-center fs-2hx">Welcome to CoolInvoice!</h1>
+                <h1 class="text-center fs-2hx">Welcome to Cool Invoice!</h1>
                 <p class="text-center fs-4 mb-8">Your Smarter Way to Invoice & Manage Business!</p>
               </div>
 
@@ -541,6 +536,27 @@
       }
     }
   </script>
+
+<!-- Toggle password visibility -->
+<script>
+  $(document).ready(function () {
+    $(".toggle-password").click(function () {
+      var input = $("#password");
+      var icon = $(this);
+
+      // Toggle input type
+      if (input.attr("type") === "password") {
+        input.attr("type", "text");
+        icon.removeClass("fa-eye").addClass("fa-eye-slash");
+      } else {
+        input.attr("type", "password");
+        icon.removeClass("fa-eye-slash").addClass("fa-eye");
+      }
+    });
+  });
+</script>
+
+
 
   </body>
 </html>
