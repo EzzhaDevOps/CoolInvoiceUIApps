@@ -1,4 +1,7 @@
+      const apiBaseUrl    = "https://localhost:7170";  //  Email API
+      const clientBaseUrl = "https://localhost:7007";  //  Blazor app
 
+      
 (function ($) {
     "use strict";
 
