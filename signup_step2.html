@@ -20,399 +20,291 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-
-    <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-    <!-- Nice Select CSS -->
-    <!-- <link rel="stylesheet" href="css/nice-select.css"> -->
-    <!-- Font Awesome CSS -->
-    <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
-    <!-- icofont CSS -->
-    <link rel="stylesheet" href="css/icofont.css">
-    <!-- Slicknav -->
-    <!-- <link rel="stylesheet" href="css/slicknav.min.css"> -->
-    <!-- Owl Carousel CSS -->
-    <link rel="stylesheet" href="css/owl-carousel.css">
-    <!-- Datepicker CSS -->
-    <!-- <link rel="stylesheet" href="css/datepicker.css"> -->
-    <!-- Animate CSS -->
-    <!-- <link rel="stylesheet" href="css/animate.min.css"> -->
-    <!-- Magnific Popup CSS -->
-    <!-- <link rel="stylesheet" href="css/magnific-popup.css"> -->
-
-
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="css/customstyle.bundle.css" rel="stylesheet">
+    
+    
     <!-- Template Stylesheet -->
-    <!-- <link href="css/style.bundle.css" rel="stylesheet"> -->
-    <!-- <link href="css/normalize.css" rel="stylesheet"> -->
     <link href="css/login.css" rel="stylesheet">
-
-    <style>
-      /* full‑screen translucent overlay, hidden by default */
-      #loaderOverlay {
-        display: none; /* ensure hidden until shown via JS */
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(255,255,255,0.7);
-        z-index: 9999;
-        align-items: center;
-        justify-content: center;
-        /* use flex via CSS, not Bootstrap class */
-        display: flex;
-      }
-      /* classic CSS spinner */
-      .loader {
-        border: 12px solid #f3f3f3;
-        border-top: 12px solid #3498db;
-        border-radius: 50%;
-        width: 80px; height: 80px;
-        animation: spin 1s linear infinite;
-      }
-      @keyframes spin {
-        0%   { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-    </style>
 </head>
-
+  
   <body>
 
-    <div id="loaderOverlay">
-      <div class="loader"></div>
-    </div>
+    <div class="form-wrapper">
+      <!-- Signup Phase-1 -->
+      <div class="contents Phase-1" id="id_phase-1">
+        <div class="mb-4">
+          <h1 class="text-center fs-2hx">Thank you for signing up.</h1>
+          <p class="text-center fs-4 mb-8">You’re just a few steps away from effortless invoicing.</p>
 
-    <div class="d-lg-flex half">
-
-      <div class="contents order-2 order-md-2">
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-7">
-              <div class="mb-4">
-                <h3>Sign Up</h3>
-                <p class="mb-4">Invoice Management System</p>
-              </div>
-              <form action="#" method="post">
-                <!-- <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="name" placeholder="name@example.com">
-                  <label for="name">Company Name</label>
-                </div> -->
-
-                <!-- <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">First Name</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">Last Name</label>
-                </div> -->
-                
-                <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="email" placeholder="name@example.com">
-                  <label for="email">Email address</label>
-                </div>
-
-                <!-- <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">Phone</label>
-                </div> -->
-
-                <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="password" placeholder="Password">
-                  <label for="password">Password</label>
-                </div>
-
-                <!-- <div class="form-floating mb-3">
-                  <textarea class="form-control" placeholder="Address" id="floatingTextarea2" style="height: 100px"></textarea>
-                  <label for="floatingTextarea2">Address</label>
-                </div> -->
-
-                <input type="submit" value="Sign Up" class="btn btn-block btn-primary w-100">
-              </form>
-
-              <!-- use data-client_id for company email-->
-              <div
-                  id="g_id_onload"
-                  data-client_id="214324501398-6dhagfs6iv4fab0agsf8fs0c9oq5f2m4.apps.googleusercontent.com"
-                  data-context="signin"
-                  data-ux_mode="popup"
-                  data-callback="handleCredentialResponse"
-                  data-auto_prompt="false"
-                  class="mt-2"
-                ></div>
-
-                <div
-                  class="g_id_signin"
-                  data-type="standard"
-                  data-size="large"
-                  data-theme="outline"
-                  data-text="sign_in_with"
-                  data-shape="rectangular"
-                  data-logo_alignment="center"
-                ></div>
-            </div>
+          <div class="mb-6">
+            <h3>Business & Profile Information</h3>
           </div>
         </div>
-      </div>
-      
-      <div class="bg order-1 order-md-1" style="background-image: url('img/login-bg_1.jpg');"></div>
 
+        <form class="formOf_signup_Body me-n6">
+          <div class="row">
+
+            <div class="col-lg-6">
+              <div class="form-floating mb-6">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Business Name" required="">
+                <label for="floatingInput" class="required">Business Name</label>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-floating mb-6">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Trading Name (Optional)">
+                <label for="floatingInput">Trading Name (Optional)</label>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-floating mb-6">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                  <option selected="" value="0">Select Industry</option>
+                  <option value="1">Retail & E-commerce</option>
+                  <option value="2">Wholesale & Distribution</option>
+                  <option value="3">Manufacturing (including light engineering, furniture, garments, leather, food processing, etc.)</option>
+                  <option value="4">Construction & Real Estate</option>
+                  <option value="5">Transportation & Logistics (trucking, freight, courier, shipping)</option>
+                  <option value="6">Professional Services (consulting, legal, IT, marketing, design)</option>
+                  <option value="7">Healthcare & Medical Services (clinics, diagnostics, dental, pharmacy)</option>
+                  <option value="8">Education & Training (schools, coaching centers, computer training)</option>
+                  <option value="9">Hospitality (hotel, restaurant, catering, event management)</option>
+                  <option value="10">Agriculture & Farming (crop, livestock, fishery, poultry, dairy)</option>
+                  <option value="11">Automotive (repair, dealership, parts, workshops)</option>
+                  <option value="12">Financial Services (accounting, insurance, microfinance)</option>
+                  <option value="13">Beauty & Personal Care (salon, spa, beauty parlour)</option>
+                  <option value="14">Printing & Publishing (printing press, packaging, publishing)</option>
+                  <option value="15">Technology & Software Development</option>
+                  <option value="16">Creative & Media (advertising, photography, videography, content creation)</option>
+                </select>
+                <label for="floatingSelect" class="required">Business Industry</label>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-floating mb-6">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                  <option selected="" value="0">Select Size</option>
+                  <option value="1">2–5 Employees</option>
+                  <option value="2">6–10 Employees</option>
+                  <option value="3">11–25 Employees</option>
+                  <option value="4">26–50 Employees</option>
+                  <option value="5">51–100 Employees</option>
+                  <option value="6">101–250 Employees</option>
+                </select>
+                <label for="floatingSelect" class="required">Business Size</label>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-floating mb-6">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                  <option selected="" value="0">Select Pattern</option>
+                  <option value="1">Registered</option>
+                  <option value="2">Self Employed</option>
+                </select>
+                <label for="floatingSelect" class="required">Business Pattern</label>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-floating mb-6">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Business Phone" required="">
+                <label for="floatingInput" class="required">Business Phone</label>
+              </div>
+            </div>
+            
+            <div class="registered_field" id="">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-floating mb-6">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Number to fill" required="">
+                    <label for="floatingInput" class="required">Number to fill</label>
+                  </div>
+                </div>
+  
+                <div class="col-lg-6">
+                  <div class="form-floating mb-6">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="VAT" required="">
+                    <label for="floatingInput" class="required">VAT Number</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="selfEmployed_field d-none" id="">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-floating mb-6">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Unique Tax Ref (UTR)" required="">
+                    <label for="floatingInput" class="required">Unique Tax Ref (UTR)</label>
+                  </div>
+                </div>
+  
+                <div class="col-lg-6">
+                  <div class="form-floating mb-6">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Business Name" required="">
+                    <label for="floatingInput" class="required">Tax ID</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="mb-4">Business Address</h3>
+
+            <div class="businessAddress_field">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-floating mb-6">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Street" required="">
+                    <label for="floatingInput" class="">Street</label>
+                  </div>
+                </div>
+  
+                <div class="col-lg-6">
+                  <div class="form-floating mb-6">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="City" required="">
+                    <label for="floatingInput" class="required">City</label>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-floating mb-6">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="State" required="">
+                    <label for="floatingInput" class="required">State</label>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-floating mb-6">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Post Code" required="">
+                    <label for="floatingInput" class="required">Post Code</label>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-floating mb-6 mb-md-0 mb-lg-0">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                  <option selected="" value="0">Select Country</option>
+                  <option value="1">United Kingdom</option>
+                  <option value="2">New Zealand</option>
+                </select>
+                <label for="floatingSelect" class="required">Country</label>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-floating mb-0 mb-md-0 mb-lg-0">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                  <option selected="" value="0">Select Currency</option>
+                  <option value="1">USD</option>
+                  <option value="2">EUR</option>
+                  <option value="2">Aud</option>
+                  <option value="2">GBP</option>
+                </select>
+                <label for="floatingSelect" class="required">Currency</label>
+              </div>
+            </div>
+
+          </div>
+        </form>
+
+        <div class="mt-10 text-end">
+          <button type="submit" value="Sign Up" class="btn btn-dark-outline w-150px signUp_btn" id="id_next_btn">Next <i class="fas fa-chevron-right mt-n1"></i></button>
+        </div>
+
+      </div>
+
+      <!-- Signup Phase-2 -->
+      <div class="contents Phase-2" id="id_phase-2">
+        <div class="mb-10">
+          <h1 class="text-center fs-2hx">Almost Done – Let’s Lock in the Essentials</h1>
+        </div>
+
+        <form class="formOf_signup_Body me-n6">
+          <div class="row">
+            <h3 class="mb-4">Primary Contact Name</h3>
+            <div class="col-lg-6">
+              <div class="form-floating mb-6">
+                <input type="text" class="form-control" id="floatingInput" placeholder="First Name" required="">
+                <label for="floatingInput" class="required">First Name</label>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-floating mb-6">
+                <input type="text" class="form-control" id="floatingInput" placeholder="SurName" required="">
+                <label for="floatingInput" class="required">Surname</label>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-floating mb-6">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Contact Phone Number">
+                <label for="floatingInput">Contact Phone Number</label>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-floating mb-6">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Alternate Email address">
+                <label for="floatingInput">Alternate Email address</label>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Upload Business Logo (Optional)</label>
+                <input class="form-control" type="file" id="formFile" _bl_32="">
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="mt-6 product_uploadedImage_section">
+                <div class="product_upload_image text-center">
+                  <div class="upload_image mb-4">
+                    <img id="defaultImageId" width="100%" height="120" src="img/logo/Cool-Invoice-Logo.png">
+                  </div>
+
+                  <button type="button" class="btn btn-sm delete_btn"><i class="fas fa-trash-alt text-white"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="signup_TermsAndConditions mt-10">
+            <h2 class="mb-2">Default Terms & Conditions</h2>
+            <p class="mb-6 fs-4">(Editable List- add or remove as per your requirement)</p>
+            <ul class=" p-0">
+              <li>1. Payment due within 30 days unless otherwise agreed.</li>
+              <li>2. Late payments may incur statutory interest/finance charges as per applicable law.</li>
+              <li>3. VAT/Sales tax is charged where applicable.</li>
+              <li>4. Goods remain the property of the seller until paid in full.</li>
+              <li>5. Any disputes regarding this invoice must be raised within 7 days of receipt.</li>
+            </ul>
+          </div>
+        </form>
+
+        <div class="mt-10 text-end">
+          <button type="submit" value="Sign Up" class="btn btn-dark-outline w-150px signUp_btn">Save Settings</button>
+        </div>
+      </div>
     </div>
-    
-    <!-- JavaScript Libraries -->
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
-    <script src="lib/wow/wow.min.js"></script>
-    <!-- <script src="lib/easing/easing.min.js"></script> -->
-    <!-- <script src="lib/waypoints/waypoints.min.js"></script> -->
-    <!-- <script src="lib/owlcarousel/owl.carousel.min.js"></script> -->
-    <!-- Owl Carousel JS -->
-    <!-- <script src="js/owl-carousel.js"></script> -->
-    <!-- <script src="lib/counterup/counterup.min.js"></script> -->
 
     <!-- jquery Min JS -->
     <script src="js/jquery.min.js"></script>
-    <!-- jquery Migrate JS -->
-    <script src="js/jquery-migrate-3.0.0.js"></script>
-    <!-- jquery Ui JS -->
-    <!-- <script src="js/jquery-ui.min.js"></script> -->
-    <!-- Easing JS -->
-    <!-- <script src="js/easing.js"></script> -->
-    <!-- Color JS -->
-    <!-- <script src="js/colors.js"></script> -->
-    <!-- Popper JS -->
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap Datepicker JS -->
-    <!-- <script src="js/bootstrap-datepicker.js"></script> -->
-    <!-- Jquery Nav JS -->
-    <!-- <script src="js/jquery.nav.js"></script> -->
-    <!-- Slicknav JS -->
-    <!-- <script src="js/slicknav.min.js"></script> -->
-    <!-- ScrollUp JS -->
-    <!-- <script src="js/jquery.scrollUp.min.js"></script> -->
-    <!-- Niceselect JS -->
-    <!-- <script src="js/niceselect.js"></script> -->
-    <!-- Tilt Jquery JS -->
-    <!-- <script src="js/tilt.jquery.min.js"></script> -->
-    <!-- Owl Carousel JS -->
-    <script src="js/owl-carousel.js"></script>
-    <!-- counterup JS -->
-    <script src="js/jquery.counterup.min.js"></script>
-    <!-- Steller JS -->
-    <!-- <script src="js/steller.js"></script> -->
-    <!-- Wow JS -->
-    <!-- <script src="js/wow.min.js"></script> -->
-    <!-- Magnific Popup JS -->
-    <!-- <script src="js/jquery.magnific-popup.min.js"></script> -->
-    <!-- Counter Up CDN JS -->
-    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="js/bootstrap.min.js"></script>
-
-
+    <script src="js/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
-
-    <!-- Template Javascript -->
-    <!-- <script src="js/login.js"></script> -->
-     
-    <!-- Include jQuery via CDN (place this before any script that uses it) -->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-
-    <!-- old code for directly sign in blazor app -->
-    <!-- <script>
-      $(document).ready(function () {
-        $('form').on('submit', function (e) {
-          e.preventDefault();
-    
-          const name = $('#name').val();
-          const email = $('#email').val();
-          const password = $('#password').val();
-    
-          // Simple validation
-          if (!name || !email || !password) {
-            alert('Please fill in all fields.');
-            return;
-          }
-    
-          //payload 
-          const payload = {
-            //CompanyName: name,
-            Name: name,
-            CompanyEmail: email,
-            Password: password,
-            UserType: 2, //  2 is for "CompanyAdmin". check the database table for other user types.
-            IsVerified: false,
-          };
-
-          console.log('Payload:', payload);
-    
-          $.ajax({
-            //url: 'https://localhost:7170/api/SignUp/SignUp',
-            url: 'https://localhost:7170/api/Email/SendEmail',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(payload),
-            success: function (response) {
-              console.log('Success:', response);
-              alert('We send an Email. Please Check your Inbox or Spam folder to verify your account.');
-              // Open the Blazor app 
-              //window.open('https://localhost:7007', '_blank');
-              //window.open('https://localhost:7170/api/Email/SendEmail', '_blank');
-            },
-            error: function (xhr, status, error) {
-              console.error('Error:', error);
-              console.log('XHR:', xhr);
-              console.log('Status:', status);
-              console.log('Response:', xhr.responseText);
-              alert('Signup failed: ' + xhr.responseText);
-            }
-          });
-        });
-      });
-    </script> -->
-    
-    <script>
-        const apiBaseUrl    = "https://localhost:7170";  //  Email API
-        const clientBaseUrl = "https://localhost:7007";  //  Blazor app
-
-      let googleUserName = "";
-    
-      $(document).ready(function () {
-        $('#loaderOverlay').hide();
-        // form submit
-        $('form').on('submit', function (e) {
-          e.preventDefault();
-          sendConfirmationEmail();
-        });
-      });
-
-      // shared function to send confirmation email
-      function sendConfirmationEmail() {
-        const email    = $('#email').val();
-        const password = $('#password').val();
-    
-        // if no password AND no googleUserName, require fill
-        if (!email || (!password && !googleUserName)) {
-          alert('Please fill in all fields (or sign in with Google).');
-          return;
-        }
-
-            //  - if Google signup, use that otherwise take local‑part of email and strip out digits/other chars
-            let displayName = googleUserName || "";
-            if (!displayName) {
-              const localPart = email.split('@')[0] || "";
-              // remove anything that's not A–Z or a–z
-              const justLetters = localPart.replace(/[^a-zA-Z]/g, '');
-              displayName = justLetters || localPart; 
-            }
-
-        // 256‑bit key must match on server
-          const secretKey = CryptoJS.enc.Utf8.parse("0123456789abcdef0123456789abcdef");
-          const iv        = CryptoJS.enc.Utf8.parse("abcdef9876543210"); // 16‑byte IV
-
-          // Encrypt the password
-          const encrypted = CryptoJS.AES.encrypt(
-            password,
-            secretKey,
-            { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }
-          ).toString();    // Base64 ciphertext
-    
-        const confirmLink =
-          `${apiBaseUrl}/api/Email/ConfirmEmail?` +
-          `email=${encodeURIComponent(email)}` +
-          `&pwd=${encodeURIComponent(encrypted || "")}` +
-          `&isConfirm=true`;
-    
-        const emailPayload = {
-          toEmail: email,
-          subject: 'Welcome to Cool Invoice! Confirm Your Email to get Started',
-          body: `
-          <div style="font-family: Arial, sans-serif; background:#f5f5f5; padding:30px;">
-            <div style="
-                max-width:600px; margin:0 auto; background:#fff;
-                border:1px solid #ddd; border-radius:8px;
-                box-shadow:0 2px 8px rgba(0,0,0,0.05); padding:20px;">
-              <h2 style="text-align:center; color:#333; margin-bottom:20px;">
-                Welcome to Cool Invoice!
-              </h2>
-              <p style="color:#555; line-height:1.6; font-size:16px; text-align:center;">
-                Hi ${displayName || ''},
-              </p>
-              <p style="color:#555; line-height:1.6;">
-                Thank you for signing up.
-              </p>
-              <p style="color:#555; line-height:1.6;">
-                We're excited to help you simplify your invoicing and streamline your business operations. To activate your account, please confirm your email address by clicking the button below:
-              </p>
-              <div style="text-align:center; margin:30px 0;">
-                <a href="${confirmLink}" style="
-                   display:inline-block; padding:12px 24px; font-size:16px;
-                   font-weight:bold; color:#000; background-color:#00ffff;
-                   text-decoration:none; border-radius:4px;">
-                  Confirm My Email
-                </a>
-              </div>
-              <p style="color:#df5858; font-size:14px; line-height:1.4;">
-                If you didn’t create an account, you can safely ignore this email.
-              </p>
-              <hr style="border:none; border-top:1px solid #eee; margin:20px 0;" />
-              <p style="color:#777; font-size:14px; text-align:center;">
-                kind regards,<br/>
-                <strong>The Cool Invoice Team</strong><br/>
-                <a href="http://coolinvoice.com" style="color:#1ba9a9; text-decoration:none;">
-                  coolinvoice.com
-                </a>
-              </p>
-            </div>
-          </div>`
-        };
-    
-        // show loader
-        $('#loaderOverlay').show();
-    
-        // send email
-        $.ajax({
-          // url: 'https://localhost:7170/api/Email/SendEmail',
-          url: apiBaseUrl +'/api/Email/SendEmail',
-          type: 'POST',
-          contentType: 'application/json',
-          data: JSON.stringify(emailPayload),
-          success: function () {
-            alert('We sent an email. Please check your inbox or spam folder.');
-          },
-          error: function (xhr) {
-            alert('Failed to send confirmation email: ' + xhr.responseText);
-          },
-          complete: function() {
-            // hide loader once done
-            $('#loaderOverlay').hide();
-          }
-        });
-      }
-    
-
-    </script>
-    
-    <!-- 3) Google Sign‑In -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script>
-      function handleCredentialResponse(response) {
-        const payload = JSON.parse(atob(response.credential.split(".")[1]));
-        if (payload) {
-          $('#email').val(payload.email);
-          googleUserName = payload.name || '';
-          // directly send email once Google identity obtained
-          sendConfirmationEmail();
-        }
-      }
-    </script>
-    
+    <script src="js/login.js"></script>
   </body>
 </html>
