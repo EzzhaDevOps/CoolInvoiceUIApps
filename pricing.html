@@ -710,9 +710,6 @@
 
       function priceList() {
         $.ajax({
-          // url: `https://localhost:7170/api/Package/All?duration=${
-          //   $("#bill-toggle").is(":checked") ? "Monthly" : "Annually"
-          // }`,
           url: `https://localhost:7170/api/Package/All`,
           type: "GET",
           contentType: "application/json",
@@ -724,14 +721,6 @@
               let seen = new Set();
               let allFeatures = [];
 
-              // item.modules.forEach((module) => {
-              //   if (module.moduleDetails !== null) {
-              //     const details = module.moduleDetails.split(",");
-              //     details.forEach((detail) => {
-              //       featureList += `<li>${detail.trim()}</li>`;
-              //     });
-              //   }
-              // });
               // Collect unique features
               item.modules.length > 0 &&
                 item.modules.forEach((module) => {
@@ -746,18 +735,6 @@
                     });
                   }
                 });
-              // item.modules.forEach((module) => {
-              //   const details = module.moduleDetails.split(",");
-              //   if (details.length > 0) {
-              //     details.forEach((detail) => {
-              //       let trimmed = detail.trim();
-              //       if (!seen.has(trimmed)) {
-              //         seen.add(trimmed);
-              //         allFeatures.push(trimmed);
-              //       }
-              //     });
-              //   }
-              // });
 
               // Separate visible and hidden features
               allFeatures.forEach((feature, i) => {
