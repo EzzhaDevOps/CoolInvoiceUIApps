@@ -710,7 +710,7 @@
 
       function priceList() {
         $.ajax({
-          url: `https://localhost:7170/api/Package/All`,
+          url: apiBaseUrl + `/api/Package/All`,
           type: "GET",
           contentType: "application/json",
           success: function (result) {
