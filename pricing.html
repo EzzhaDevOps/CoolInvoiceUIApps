@@ -705,15 +705,15 @@
 
     <script>
       $(document).ready(function () {
-        priceList("Monthly");
+        priceList();
       });
 
-      function priceList(duration) {
+      function priceList() {
         $.ajax({
           // url: `https://localhost:7170/api/Package/All?duration=${
           //   $("#bill-toggle").is(":checked") ? "Monthly" : "Annually"
           // }`,
-          url: `https://localhost:7170/api/Package/All?duration=${duration}`,
+          url: `https://localhost:7170/api/Package/All`,
           type: "GET",
           contentType: "application/json",
           success: function (result) {
@@ -774,7 +774,7 @@
               const html = `
                   <div class="plan starter">
                       <h2 class="name">${item.packageName}</h2>
-                      <div class="price">$${item.subTotal}</div>
+                      <div class="price"><span>£</span>${item.subTotal}</div>
                       <ul class="features">
                           ${visibleFeatures}
                           <div id="${hiddenId}" class="more-features" style="display:none;">
@@ -786,7 +786,7 @@
                           ? `<button class="more-btn mb-3" id="${toggleBtnId}" onclick="toggleFeatures('${hiddenId}', '${toggleBtnId}')">More</button>`
                           : ""
                       }
-                          <button class="choose-btn" type="button">Choose Plan</button>
+                          <a href="/signup_step1.html" class="choose-btn text-center" type="button">Choose Plan</a>
                   </div>
               `;
 
@@ -816,17 +816,17 @@
         });
       }
 
-      const toggle = document.getElementById("bill-toggle");
+    //   const toggle = document.getElementById("bill-toggle");
 
-      toggle.addEventListener("change", function () {
-        if (toggle.checked) {
-          console.log("User selected: Billed monthly");
-          priceList("Monthly");
-        } else {
-          console.log("User selected: Billed annually");
-          priceList("Annually");
-        }
-      });
+    //   toggle.addEventListener("change", function () {
+    //     if (toggle.checked) {
+    //       console.log("User selected: Billed monthly");
+    //       priceList("Monthly");
+    //     } else {
+    //       console.log("User selected: Billed annually");
+    //       priceList("Annually");
+    //     }
+    //   });
     </script>
   </body>
 </html>
