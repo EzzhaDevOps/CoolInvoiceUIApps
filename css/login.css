@@ -135,23 +135,19 @@ body::before {
   background: #14ebd9;
 }
 .signUp_btn {
-  background: #099488;
+  background: #00ffff;
   /* padding: 8px; */
-  color: white;
+  color: #000;
   text-align: center;
   border-radius: 7px;
   border: none;
-  padding: calc(0.775rem + 1px) calc(1.5rem + 1px);
-  font-size: 14.3px;
+  padding: calc(0.775rem + 2px) calc(1.5rem + 1px);
+  font-size: 16px;
 }
 .signUp_btn:hover {
   background: #14ebd9;
   /* padding: 8px; */
-  color: white;
-  text-align: center;
-  border-radius: 7px;
-  border: none;
-  padding: calc(0.775rem + 1px) calc(1.5rem + 1px);
+  color: #000;
 }
 .control {
   display:block;

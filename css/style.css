@@ -1533,13 +1533,8 @@ button:focus {
 }
 .serviceLeadingSection{
   width: 80%;
-  margin-top: 15px;
-  margin-bottom:15px;
 }
-.sn{
-  font-size: 32px;
-  padding-right: 5px;
-}
+
 .st{
   font-size: 32px;
 }
@@ -1550,7 +1545,8 @@ button:focus {
 }
 .serviceInfoContainer{
   position:relative;
-  width: 100%;    
+  width: 100%;  
+  margin-bottom: 40px;  
 }
 .serviceLead{
   font-weight: 700;
@@ -1561,17 +1557,17 @@ button:focus {
 }
 .serviceDetails{
   margin-left: 15px;
+  font-size: 18px;
 }
 
 .displayNone{
   display:none;
 }
 .secionLine{
-  height: 40px;
+  height: 25px;
   width:5px;
-
   position:absolute;
-  top:7px;
+  top:0px;
 }
 /*Font Colours below*/
 .lightGreen{
