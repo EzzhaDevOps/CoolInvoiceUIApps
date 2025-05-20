@@ -774,7 +774,7 @@
               const html = `
                   <div class="plan starter">
                       <h2 class="name">${item.packageName}</h2>
-                      <div class="price"><span>£</span>${item.subTotal}</div>
+                      <div class="price"><span>£</span>${item.price}</div>
                       <ul class="features">
                           ${visibleFeatures}
                           <div id="${hiddenId}" class="more-features" style="display:none;">
@@ -786,7 +786,7 @@
                           ? `<button class="more-btn mb-3" id="${toggleBtnId}" onclick="toggleFeatures('${hiddenId}', '${toggleBtnId}')">More</button>`
                           : ""
                       }
-                          <a href="/signup_step1.html" class="choose-btn text-center" type="button">Choose Plan</a>
+                          <a href="/signup_step1.html?packageId=${encodeURIComponent(item.packageId)}&price=${encodeURIComponent(item.price)}" class="choose-btn text-center" type="button">Choose Plan</a>
                   </div>
               `;
 

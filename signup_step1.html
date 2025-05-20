@@ -542,5 +542,11 @@
     }
   </script>
 
+  <script>
+    const searchParams=new URLSearchParams(window.location.search);
+    const packageId=searchParams.get('packageId');
+    const price=searchParams.get('price');
+  </script>
+
   </body>
 </html>
