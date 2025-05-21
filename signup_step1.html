@@ -362,13 +362,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
     <script src="js/login.js"></script>
+    <script src="js/main.js"></script>
 
     <script>
-      // const apiBaseUrl    = "https://localhost:7170";  //  Email API
-      // const clientBaseUrl = "https://localhost:7007";  //  Blazor app
       let googleUserName = "";
+      let selectedPackageId = null;
+      let selectedPrice = null;
 
-        // store last payload for resend
+      (function parseQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+
+        if (params.has('packageId')) {
+          selectedPackageId = params.get('packageId');
+          //console.log('Package ID:', selectedPackageId);
+        } else {
+          console.warn(
+            'Warning: No "packageId" found in URL. The email confirmation link will not include a packageId.'
+          );
+        }
+
+        if (params.has('price')) {
+          selectedPrice = params.get('price');
+          //console.log('Price:', selectedPrice);
+        } else {
+          console.warn(
+            'Warning: No "price" found in URL. The email confirmation link will not include a price.'
+          );
+        }
+      })();
+
+      // store last payload for resend
         window.lastEmailPayload = null;
   
     $(document).ready(function () {
@@ -412,12 +435,16 @@
           { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }
         ).toString();    // Base64 ciphertext
   
-      const confirmLink =
+      let confirmLink =
         `${apiBaseUrl}/api/Email/ConfirmEmail?` +
         `email=${encodeURIComponent(email)}` +
         `&pwd=${encodeURIComponent(encrypted || "")}` +
-        `&isConfirm=true`;
-  
+        `&isConfirm=true`+
+        (selectedPackageId !== null ? `&packageId=${encodeURIComponent(selectedPackageId)}` : '') +
+        (selectedPrice     !== null ? `&price=${encodeURIComponent(selectedPrice)}` : '');
+
+        //console.log('Confirm link:', confirmLink);
+
       const emailPayload = {
         toEmail: email,
         subject: 'Welcome to Cool Invoice! Confirm Your Email to get Started',
@@ -462,8 +489,8 @@
         </div>`
       };
 
-          // store for resend
-          window.lastEmailPayload = emailPayload;
+      // store for resend
+      window.lastEmailPayload = emailPayload;
   
       // show loader
       $('#loaderOverlay').show();
