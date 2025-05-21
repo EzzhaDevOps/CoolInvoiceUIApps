@@ -70,6 +70,27 @@
           color: #fff !important;
         }
 
+        .resendEmail_btn{
+          background: #00ffff;
+          color: #000;
+          font-size: 14px;
+        }
+
+      .resendEmail_btn:hover {
+        background: #14ebd9;
+        color: #000;
+      }
+
+      .modal_close_icon{
+        position: absolute;
+        right: 8px;
+        top: 4px;
+        font-size: 32px;
+        color: #000;
+        opacity: 5 !important;
+        cursor: pointer;
+      }
+
       /* full‑screen translucent overlay, hidden by default */
       #loaderOverlay {
         display: none; /* ensure hidden until shown via JS */
@@ -104,252 +125,146 @@
 
   <body>
 
-        
     <div id="loaderOverlay">
       <div class="loader"></div>
     </div>
 
-        <div class="signupPhase_one-form-wrapper">
+    <div class="signupPhase_one-form-wrapper">
 
-          <div class="signupPhase_Info d-flex w-50 align-items-center">
-            <div class="w-100 p-15 position-absolute">
-              <div class="mb-6">
-                <!-- <h1 class="text-start fs-2hx"><img class="w-150px" src="/UIDesign/img/logo/Cool-Invoice-Logo.png"></h1> -->
-                <h1 class="text-start fs-2hx"><img class="w-150px" src="../img/logo/Cool-Invoice-Logo.png"></h1>
-              </div>
-              <div class="  text-white ">
-                <h1 class="fs-3hx mb-8">We’re excited to have you on board!</h3>
-                <p class="fs-2x">With Cool Invoice, you can:</p>
-                <p class="fs-4 text-white"><i class="far fa-check-circle fs-4"></i> <span>Create professional invoices in seconds</span> </p>
-                <p class="fs-4 text-white"><i class="far fa-check-circle fs-4"></i> <span>Automate your purchase, inventory, and accounts</span> </p>
-                <p class="fs-4 text-white"><i class="far fa-check-circle fs-4"></i> <span>Track payments and expenses with ease</span> </p>
-                <p class="fs-4 text-white"><i class="far fa-check-circle fs-4"></i> <span>Get real-time insights to grow your business</span> </p>
-              </div>
-              <div>
-                <br>
-              </div>
-
-              <div class="mt-8">
-                <p class="fs-4 text-white">
-                  <i class="fas fa-circle fs-6 me-2"></i> <span>No hidden fees.</span>
-                </p>
-                <p class="fs-4 text-white">
-                  <i class="fas fa-circle fs-6 me-2"></i> <span>Your data is safe and secure.</span>
-                </p>
-                <p class="fs-4 text-white mb-0">
-                  <i class="fas fa-circle fs-6 me-2"></i> <span>Our support team is always here to help you succeed.</span>
-                </p>
-              </div>
-              
-              
-            </div>
-            
-
-          </div>
-            
-
-          <!-- Signup Phase-1 -->
-          <div class="signupPhase_one_contents">
-            
-
-            <div class="formOf_signin_Body h-100">
-              <div class="mb-15">
-                <h1 class="text-center fs-2hx">Welcome to Cool Invoice!</h1>
-                <p class="text-center fs-4 mb-8">Your Smarter Way to Invoice & Manage Business!</p>
-              </div>
-
-              <div class="mb-6">
-                <h2>Create your account in seconds</h2>
-              </div>
-
-              <form action="#" method="post">
-                <div class="form-floating first mb-6">
-                  <input type="email" class="form-control" id="email" placeholder="name@example.com">
-                  <label for="floatingInput" class="required">Email address</label>
-                </div>
-
-                <div class="form-floating last mb-6">
-                  <input type="password" class="form-control" id="password" placeholder="Password">
-                  <label for="password-field" class="required">Password</label>
-
-                  <span toggle="#password-field" class="fa fa-fw fa-eye password-field-icon toggle-password"></span>
-                </div>
-
-                <div class="mt-10 text-end">
-                  <button type="submit" value="Sign Up" class="google w-100 signUp_btn">
-                    Sign Up
-                  </button>
-                  <!-- <input type="submit" value="Sign Up" class="btn btn-block btn-primary w-100"> -->
-                </div>
-
-                <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
-                
-                <!-- <div class="social-login">
-                  <a href="#" class="google btn d-flex justify-content-center align-items-center gap-2">
-                    <span class="icon-google mr-3"></span> <span>SignUp with  Google</span> 
-                  </a>
-                </div> -->
-
-                <!-- Google sign up section use data-client_id for company email-->
-              <div
-              id="g_id_onload"
-              data-client_id="214324501398-6dhagfs6iv4fab0agsf8fs0c9oq5f2m4.apps.googleusercontent.com"
-              data-context="signin"
-              data-ux_mode="popup"
-              data-callback="handleCredentialResponse"
-              data-auto_prompt="false"
-              class="mt-2"
-            ></div>
-
-            <div
-              class="g_id_signin"
-              data-type="standard"
-              data-size="large"
-              data-theme="outline"
-              data-text="sign_in_with"
-              data-shape="rectangular"
-              data-logo_alignment="center"
-            ></div>
-
-
-                <!-- <div class="mt-6">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                    <label class="form-check-label fs-5" for="flexCheckChecked">
-                      Checkbox text for cool invoice signup form: I confirm that i read and agree to the terms of service and Privacy policy of cool invoice.
-                    </label>
-                  </div>
-                </div> -->
-              
-                <div class="mt-6">
-                  <label class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="toc" value="1">
-                    <span class="form-check-label fw-semibold text-muted fs-5 ms-1">I confirm that I read and agree to the <a href="/termsAndCondition.html">Terms of Service</a> and <a href="/privacyPolicy.html">Privacy Policy</a> of cool invoice.</span>
-                  </label>
-                </div>
-                
-
-
-                <div class="text-gray-500 text-center fw-semibold fs-4 mt-8">
-                  Already have an account?
-                  <a href="login.html" class="link-primary fw-semibold">Login</a></div>
-              </form>
-            </div>
+      <div class="signupPhase_Info d-flex w-50 align-items-center">
+        <div class="w-100 p-15 position-absolute">
+          <div class="mb-6">
+            <!-- <h1 class="text-start fs-2hx"><img class="w-150px" src="/UIDesign/img/logo/Cool-Invoice-Logo.png"></h1> -->
+            <h1 class="text-start fs-2hx"><img class="w-150px" src="../img/logo/Cool-Invoice-Logo.png"></h1>
           </div>
 
-          
+          <div class="text-white">
+            <h1 class="fs-3hx mb-8">We’re excited to have you on board!</h1>
+            <p class="fs-2x">With Cool Invoice, you can:</p>
+            <p class="fs-4 text-white"><i class="far fa-check-circle fs-4"></i> <span>Create professional invoices in seconds</span> </p>
+            <p class="fs-4 text-white"><i class="far fa-check-circle fs-4"></i> <span>Automate your purchase, inventory, and accounts</span> </p>
+            <p class="fs-4 text-white"><i class="far fa-check-circle fs-4"></i> <span>Track payments and expenses with ease</span> </p>
+            <p class="fs-4 text-white"><i class="far fa-check-circle fs-4"></i> <span>Get real-time insights to grow your business</span> </p>
+          </div>
 
+          <br>
+
+          <div class="mt-8">
+            <p class="fs-4 text-white"><i class="fas fa-circle fs-6 me-2"></i> <span>No hidden fees.</span></p>
+            <p class="fs-4 text-white"><i class="fas fa-circle fs-6 me-2"></i> <span>Your data is safe and secure.</span></p>
+            <p class="fs-4 text-white mb-0"><i class="fas fa-circle fs-6 me-2"></i> <span>Our support team is always here to help you succeed.</span></p>
+          </div>
         </div>
+      </div>
+
+      <!-- Signup Phase-1 -->
+      <div class="signupPhase_one_contents">
+        <div class="formOf_signin_Body h-100">
+          <div class="mb-15">
+            <h1 class="text-center fs-2hx">Welcome to Cool Invoice!</h1>
+            <p class="text-center fs-4 mb-8">Your Smarter Way to Invoice & Manage Business!</p>
+          </div>
+
+          <div class="mb-6">
+            <h2>Create your account in seconds</h2>
+          </div>
+
+          <form action="#" method="post">
+            <div class="form-floating first mb-6">
+              <input type="email" class="form-control" id="email" placeholder="name@example.com">
+              <label for="floatingInput" class="required">Email address</label>
+            </div>
+
+            <div class="form-floating last mb-6">
+              <input type="password" class="form-control" id="password" placeholder="Password">
+              <label for="password-field" class="required">Password</label>
+              <span toggle="#password-field" class="fa fa-fw fa-eye password-field-icon toggle-password"></span>
+            </div>
+
+            <div class="mt-10 text-end">
+              <button type="submit" value="Sign Up" class="google w-100 signUp_btn">Sign Up</button>
+              <!-- <input type="submit" value="Sign Up" class="btn btn-block btn-primary w-100"> -->
+            </div>
+
+            <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
+
+            <!-- Google sign up section use data-client_id for company email-->
+            <div id="g_id_onload" data-client_id="214324501398-6dhagfs6iv4fab0agsf8fs0c9oq5f2m4.apps.googleusercontent.com" data-context="signin" data-ux_mode="popup" data-callback="handleCredentialResponse" data-auto_prompt="false" class="mt-2"></div>
+
+            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="center"></div>
+          
+            <div class="mt-6">
+              <label class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="toc" value="1">
+                <span class="form-check-label fw-semibold text-muted fs-5 ms-1">I confirm that I read and agree to the <a href="/termsAndCondition.html">Terms of Service</a> and <a href="/privacyPolicy.html">Privacy Policy</a> of cool invoice.</span>
+              </label>
+            </div>
+
+            <div class="text-gray-500 text-center fw-semibold fs-4 mt-8">Already have an account?<a href="login.html" class="link-primary fw-semibold">Login</a></div>
+          </form>
+        </div>
+      </div>
 
     </div>
 
-      <!-- Confirmation Modal -->
-        <div
-        class="modal fade"
-        id="confirmationModal"
-        tabindex="-1"
-        aria-labelledby="confirmationModalLabel"
-        aria-hidden="true"
-      >
+    <!-- Confirmation Modal -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content border border-2 border-secondary">
-            <div class="modal-header">
-              <h5 class="modal-title" id="confirmationModalLabel">
-                You’re Almost There!
-              </h5>
-              <button
-                type="button"
-                class="btn-close btn-sm"               
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <p>
-                A confirmation email has been sent to:
-                <strong id="modalEmailAddress" style="color: #3498db;"></strong>
-              </p>
+            <button type="button" class="btn-close btn-sm modal_close_icon" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body text-center fs-4">
+              <div class="mb-4">
+                <img src="img/checked.png" width="120">
+              </div>
+              <h2 class="modal-title mb-4" id="confirmationModalLabel">You’re Almost There!</h2>
+              <p>A confirmation email has been sent to:<strong id="modalEmailAddress" style="color: #3498db;"></strong></p>
               <p>Please check your inbox and click the link to verify your email address.</p>
               <p><strong>Check your spam or junk folder.</strong></p>   
               <p>Make sure you entered the correct email address.</p>
-              <p>
-                Need help?
-                <a href="https://coolinvoice.com/support" target="_blank">
-                  Contact Support
-                </a>
-              </p>                                                       
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                id="btnResend"
-                class="btn btn-sm"
-                style="background-color: orange; color: black;"
-              >
-                Resend Email
-              </button>
+              <p>Need help? <a href="https://coolinvoice.com/support" target="_blank">Contact Support</a></p> 
 
-              <button
-                type="button"
-                class="btn btn-outline-primary btn-sm"   
-                data-bs-dismiss="modal"
-                style="background-color: skyblue; color: black;"
-              >
-                Close
-              </button>
+              <div class="text-center mb-4">
+                  <button type="button" id="btnResend" class="btn btn-sm resendEmail_btn">Resend Email</button>
+              </div>   
+              
+
+              <div class="text-center">
+                <p>Thank you for joining <strong>Cool Invoice</strong>! </p>
+                <p class="mb-0">We’re excited to help you simplify your business finances.</p>
+              </div>
             </div>
-            <div class="text-center mb-3">
-              Thank you for joining <strong>Cool Invoice</strong>! 
-              <br>We’re excited to help
-              you simplify your business finances.
-            </div>
+            <!-- <div class="modal-footer justify-content-center">
+              
+              <button type="button" class="btn btn-sm delete_btn" data-bs-dismiss="modal">Close</button>
+            </div>  -->
+            
           </div>
         </div>
-      </div>
+    </div>
 
-      <!-- Resend Confirmation Modal -->
-      <div
-      class="modal fade"
-      id="resendModal"
-      tabindex="-1"
-      aria-labelledby="resendModalLabel"
-      aria-hidden="true"
-      >
+    <!-- Resend Confirmation Modal -->
+    <div class="modal fade" id="resendModal" tabindex="-1" aria-labelledby="resendModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border border-2 border-secondary">
-          <div class="modal-header">
-            <h5 class="modal-title" id="resendModalLabel">
-              Confirmation Email Sent Again!
-            </h5>
-            <button
-              type="button"
-              class="btn-close btn-sm"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <p>
-              Another confirmation email has been sent to:
-              <strong id="resendModalEmailAddress" style="color: #3498db;"></strong>
-            </p>
+
+          <button type="button" class="btn-close btn-sm modal_close_icon" data-bs-dismiss="modal" aria-label="Close"></button>
+
+          <div class="modal-body text-center fs-4">
+            <div class="mb-4">
+              <img src="img/confirmation_email_icon.png" width="120">
+            </div>
+            <h2 class="modal-title mb-4" id="resendModalLabel">Confirmation Email Sent Again!</h2>
+            <p>Another confirmation email has been sent to:<strong id="resendModalEmailAddress" style="color: #3498db;"></strong></p>
             <p>Please check your inbox and click the link to verify your email address.</p>
             <p><strong>Check your spam or junk folder.</strong></p>
-            <p>Make sure you entered the correct email address.</p>
+            <p class="mb-0">Make sure you entered the correct email address.</p>
           </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-sm"
-              data-bs-dismiss="modal"
-              style="background-color: skyblue; color: black;"
-            >
-              Close
-            </button>
-          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-sm" data-bs-dismiss="modal" style="background-color: skyblue; color: black;">Close</button>
+          </div> -->
         </div>
       </div>
-      </div>
+    </div>
     
 
     <!-- jquery Min JS -->
