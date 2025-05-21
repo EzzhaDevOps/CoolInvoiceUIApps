@@ -60,7 +60,7 @@
     <style>
       .more-btn {
         margin-top: 10px;
-        background-color: #31FFFF;
+        background-color: #31ffff;
         color: black;
         border: none;
         padding: 6px 12px;
@@ -70,7 +70,7 @@
       }
 
       .more-btn:hover {
-        background-color: #31FFFF;
+        background-color: #31ffff;
       }
 
       .plan {
@@ -82,6 +82,14 @@
         transform: scale(1.05);
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         z-index: 10;
+      }
+
+      .key-label {
+        font-weight: bold;
+        margin: 10px 0 5px;
+        color: #333;
+        font-size: 18px;
+        text-align: center;
       }
     </style>
   </head>
@@ -344,12 +352,12 @@
       <h1 class="page-title">Choose a plan</h1>
 
       <div class="bill-type">
-        <div class="monthly">Billed monthly</div>
+        <div class="monthly">Billed Annually</div>
         <div class="bill-toggle">
           <input type="checkbox" id="bill-toggle" checked />
           <label for="bill-toggle"></label>
         </div>
-        <div class="annually">Billed anually</div>
+        <div class="annually">Billed Monthly</div>
       </div>
 
       <div class="pricing-table mb-5">
@@ -420,7 +428,7 @@
         </div>
       </div>
 
-      <div class="featuresPlans_table">
+      <!-- <div class="featuresPlans_table">
         <div class="container">
           <h1 class="page-title mb-5">
             Select the right plan for your business
@@ -529,7 +537,7 @@
             </section>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- Footer Start -->
@@ -705,17 +713,25 @@
 
     <script>
       $(document).ready(function () {
-        priceList();
+        priceList("Monthly");
       });
 
-      function priceList() {
+      function priceList(duration) {
         $.ajax({
           url: apiBaseUrl + `/api/Package/All`,
           type: "GET",
           contentType: "application/json",
           success: function (result) {
+            var packageWiseList = [];
+            result.data.map((item) => {
+              if (item.periodDuration == duration) {
+                packageWiseList.push(item);
+              }
+            });
+
             $("#package_container").empty();
-            $.each(result.data, function (index, item) {
+            $.each(packageWiseList, function (index, item) {
+              debugger;
               let visibleFeatures = "";
               let hiddenFeatures = "";
               let seen = new Set();
@@ -741,6 +757,10 @@
                 const li = `<li style="font-size:.9rem">${feature}</li>`;
                 if (i < 5) {
                   visibleFeatures += li;
+                } else if (i === 5) {
+                  visibleFeatures += `<p class="key-label">Key Features :</p><li style="font-size:.9rem">${feature}</li>`;
+                } else if (i === 6) {
+                  visibleFeatures += `<li style="font-size:.9rem">${feature}</li>`;
                 } else {
                   hiddenFeatures += li;
                 }
@@ -751,7 +771,7 @@
               const html = `
                   <div class="plan starter">
                       <h2 class="name">${item.packageName}</h2>
-                      <div class="price"><span>£</span>${item.price}</div>
+                      <div class="price"><span>£</span>${item.subTotal}</div>
                       <ul class="features">
                           ${visibleFeatures}
                           <div id="${hiddenId}" class="more-features" style="display:none;">
@@ -759,11 +779,15 @@
                           </div>
                       </ul>
                       ${
-                        allFeatures.length > 5
+                        allFeatures.length > 7
                           ? `<button class="more-btn mb-3" id="${toggleBtnId}" onclick="toggleFeatures('${hiddenId}', '${toggleBtnId}')">More</button>`
                           : ""
                       }
-                          <a href="/signup_step1.html?packageId=${encodeURIComponent(item.packageId)}&price=${encodeURIComponent(item.price)}" class="choose-btn text-center" type="button">Choose Plan</a>
+                          <a href="/signup_step1.html?packageId=${encodeURIComponent(
+                            item.packageId
+                          )}&price=${encodeURIComponent(
+                item.subTotal
+              )}" class="choose-btn text-center" type="button">Choose Plan</a>
                   </div>
               `;
 
@@ -793,17 +817,17 @@
         });
       }
 
-    //   const toggle = document.getElementById("bill-toggle");
+      const toggle = document.getElementById("bill-toggle");
 
-    //   toggle.addEventListener("change", function () {
-    //     if (toggle.checked) {
-    //       console.log("User selected: Billed monthly");
-    //       priceList("Monthly");
-    //     } else {
-    //       console.log("User selected: Billed annually");
-    //       priceList("Annually");
-    //     }
-    //   });
+      toggle.addEventListener("change", function () {
+        if (toggle.checked) {
+          //console.log("User selected: Billed monthly");
+          priceList("Monthly");
+        } else {
+          //console.log("User selected: Billed annually");
+          priceList("Annually");
+        }
+      });
     </script>
   </body>
 </html>
