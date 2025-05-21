@@ -439,15 +439,11 @@
         `${apiBaseUrl}/api/Email/ConfirmEmail?` +
         `email=${encodeURIComponent(email)}` +
         `&pwd=${encodeURIComponent(encrypted || "")}` +
-        `&isConfirm=true`;
-  
-      // grab packageId and price and add to Confirm link button
-      if (selectedPackageId !== null) {
-        confirmLink += '&packageId=' + encodeURIComponent(selectedPackageId);
-      }
-      if (selectedPrice !== null) {
-        confirmLink += '&price=' + encodeURIComponent(selectedPrice);
-      }
+        `&isConfirm=true`+
+        (selectedPackageId !== null ? `&packageId=${encodeURIComponent(selectedPackageId)}` : '') +
+        (selectedPrice     !== null ? `&price=${encodeURIComponent(selectedPrice)}` : '');
+
+        //console.log('Confirm link:', confirmLink);
 
       const emailPayload = {
         toEmail: email,
