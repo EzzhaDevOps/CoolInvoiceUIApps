@@ -420,67 +420,6 @@
       <div class="pricing-table mb-5">
         <div class="container">
           <div class="pricing-table_content" id="package_container">
-            <!-- <div class="plan starter">
-                        <h2 class="name">Basic</h2>
-                        <div class="price">$19</div>
-                        <div class="sub_per_year">per year</div>
-                        <ul class="features">
-                        <li>500MAUs</li>
-                        <li>3 projects</li>
-                        <li>Unlimited guides</li>
-                        <li>Unlimited flows</li>
-                        <li>Unlimited branded themes</li>
-                        <li>Email support</li>
-                        </ul>
-                        <button class="choose-btn" type="button">
-                        Choose Plan
-                        </button>
-                    </div> -->
-
-            <!-- <div class="plan pro">
-                        <h2 class="name">Books Essential</h2>
-                        <div class="price">$99 <sub>/ month</sub></div>
-                        <div class="sub_per_year">per year, per business</div>
-                        <ul class="features">
-                        <li>All starter features, plus:</li>
-                        <li>Unlimited projects</li>
-                        <li>Unlimited fully customizable themes</li>
-                        <li>A dedicated customer success manager</li>
-                        </ul>
-                        <button class="choose-btn active" type="button">
-                        Choose Plan
-                        </button>
-                    </div>
-                    
-                    <div class="plan enterprise">
-                        <h2 class="name">Books GST</h2>
-                        <div class="price">$99 <sub>/ month</sub></div>
-                        <div class="sub_per_year">per year, per business</div>
-                        <ul class="features">
-                        <li>All Pro features</li>
-                        <li>Unlimited MAUs</li>
-                        <li>Dedicated environment</li>
-                        <li>Premium support and services</li>
-                        </ul>
-                        <button class="choose-btn" type="button">
-                        Contact Us
-                        </button>
-                    </div>
-        
-                    <div class="plan enterprise">
-                        <h2 class="name">Books Pro</h2>
-                        <div class="price">$99 <sub>/ month</sub></div>
-                        <div class="sub_per_year">per year, per business</div>
-                        <ul class="features">
-                        <li>All Pro features</li>
-                        <li>Unlimited MAUs</li>
-                        <li>Dedicated environment</li>
-                        <li>Premium support and services</li>
-                        </ul>
-                        <button class="choose-btn" type="button">
-                        Contact Us
-                        </button>
-                    </div> -->
           </div>
         </div>
       </div>
@@ -779,6 +718,7 @@
           type: "GET",
           contentType: "application/json",
           success: function (result) {
+            console.log(result);
             var packageWiseList = [];
             result.data.map((item) => {
               if (item.periodDuration == duration) {
@@ -786,9 +726,12 @@
               }
             });
 
+            console.log("Filtered Data for " + duration + ":", packageWiseList);
+
             $("#package_container").empty();
+
+            
             $.each(packageWiseList, function (index, item) {
-              debugger;
               let visibleFeatures = "";
               let hiddenFeatures = "";
               let seen = new Set();
@@ -883,28 +826,19 @@
         });
       }
 
-      // const toggle = document.getElementById("bill-toggle");
-
-      // toggle.addEventListener("change", function () {
-      //   if (toggle.checked) {
-      //     //console.log("User selected: Billed monthly");
-      //     priceList("Monthly");
-      //   } else {
-      //     //console.log("User selected: Billed annually");
-      //     priceList("Annually");
-      //   }
-      // });
-
       $('input[name="inlineRadioOptions"]').change(function () {
         const selectedValue = $(this).val();
         if (selectedValue === "option1") {
           priceList("Monthly");
+          console.log();
         } else if (selectedValue === "option2") {
           priceList("Quarterly");
         } else if (selectedValue === "option3") {
           priceList("Annually");
         }
       });
+
     </script>
-  </body>
+    
+</body>
 </html>
